@@ -1,14 +1,11 @@
-//! A simple nannou app for visualising the output data produced by the Ether Dream DAC emulator.
-//!
-//! In this example we:
-//!
-//! 1. Create the default DAC emulator.
-//! 2. Spawn the broadcaster on its own thread so that it sends UDP broadcasts once per second.
-//! 3. Spawn the listener on its own thread so that it may listen for stream connection requests.
-//! 4. Loop at 60 FPS (nannou's default app loop).
-//! 5. On each loop, check whether or not a new stream has been established.
-//! 6. If we have a stream, check for the latest frame points.
-//! 7. In our `view` function, draw the laser frame to the bounds of the window.
+//! An app for visualizing the output data produced by the Ether Dream DAC emulator.
+//! 1. Creates the default DAC emulator.
+//! 2. Spawns the broadcaster on its own thread so that it sends UDP broadcasts once per second.
+//! 3. Spawns the listener on its own thread so that it may listen for stream connection requests.
+//! 4. Loops at 60 FPS (nannou's default app loop).
+//! 5. On each loop, checks whether or not a new stream has been established.
+//! 6. If we have a stream, checks for the latest frame points.
+//! 7. Draw the laser frame to the bounds of the window.
 
 extern crate ether_dream_dac_emulator;
 extern crate nannou;
