@@ -6,6 +6,8 @@
 //! 5. On each loop, checks whether or not a new stream has been established.
 //! 6. If we have a stream, checks for the latest frame points.
 //! 7. Draw the laser frame to the bounds of the window.
+//!
+//! This code is based on https://github.com/nannou-org/ether-dream/blob/master/dac-emulator/examples/dac_emulator_visualiser.rs
 
 extern crate ether_dream_dac_emulator;
 extern crate nannou;
@@ -129,9 +131,9 @@ fn view(app: &App, model: &Model, frame: Frame) {
         .color(color);
 
     // Draw the path.
-    let t_x = |xi: i16| (xi as f32 / std::i16::MAX as f32) * win.w() * 0.5;
-    let t_y = |yi: i16| (yi as f32 / std::i16::MAX as f32) * win.h() * 0.5;
-    let t_color = |color: u16| color as f32 / std::u16::MAX as f32;
+    let t_x = |xi: i16| (xi as f32 / i16::MAX as f32) * win.w() * 0.5;
+    let t_y = |yi: i16| (yi as f32 / i16::MAX as f32) * win.h() * 0.5;
+    let t_color = |color: u16| color as f32 / u16::MAX as f32;
     let convert_point = |pt: &DacPoint, lum: f32| -> (Point2, LinSrgb) {
         let x = t_x(pt.x);
         let y = t_y(pt.y);
